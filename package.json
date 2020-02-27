@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "docz dev",
     "build": "docz build",
-    "deploy": "gh-pages -d .docz/public",
+    "deploy": "gh-pages -d .docz",
     "publish-demo": "npm run build && npm run deploy"
   },
   "dependencies": {
