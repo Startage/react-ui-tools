@@ -1,0 +1,225 @@
+---
+name: TextField
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import { TextField } from './Form';
+import { Formik, Form } from 'formik';
+import {
+  Container, Grid, MenuItem
+} from '@material-ui/core';
+
+# TextField
+
+Formik is required to use TextField
+
+## Properties
+
+<Props of={TextField} />
+
+## Basic usage
+
+<Playground>
+      <div style={{padding: 40}}>
+        <Formik
+            initialValues={{name: ""}}
+            onSubmit={(values) => console.log(values)}
+            enableReinitialize
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <TextField 
+                    name="name"
+                    label="Name"
+                  />
+                </Form>
+            )}
+        </Formik>
+      </div>
+</Playground>
+
+## Phone Mask
+
+<Playground>
+      <div style={{padding: 40}}>
+        <Formik
+            initialValues={{phone: ""}}
+            onSubmit={(values) => console.log(values)}
+            enableReinitialize
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <TextField 
+                    mask="phone"
+                    name="phone"
+                    label="Phone"
+                  />
+                </Form>
+            )}
+        </Formik>
+      </div>
+</Playground>
+
+## CPF/CNPJ Mask
+
+<Playground>
+      <div style={{padding: 40}}>
+        <Formik
+            initialValues={{cpfCnpj: ""}}
+            onSubmit={(values) => console.log(values)}
+            enableReinitialize
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <TextField 
+                    mask="cpfCnpj"
+                    name="cpfCnpj"
+                    label="CPF/CNPJ"
+                  />
+                </Form>
+            )}
+        </Formik>
+      </div>
+</Playground>
+
+
+## CPF Mask
+
+<Playground>
+      <div style={{padding: 40}}>
+        <Formik
+            initialValues={{cpf: ""}}
+            onSubmit={(values) => console.log(values)}
+            enableReinitialize
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <TextField 
+                    mask="cpf"
+                    name="cpf"
+                    label="CPF"
+                  />
+                </Form>
+            )}
+        </Formik>
+      </div>
+</Playground>
+
+## CNPJ Mask
+
+<Playground>
+      <div style={{padding: 40}}>
+        <Formik
+            initialValues={{cnpj: ""}}
+            onSubmit={(values) => console.log(values)}
+            enableReinitialize
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <TextField 
+                    mask="cnpj"
+                    name="cnpj"
+                    label="CNPJ"
+                  />
+                </Form>
+            )}
+        </Formik>
+      </div>
+</Playground>
+
+
+## CEP Mask
+
+<Playground>
+      <div style={{padding: 40}}>
+        <Formik
+            initialValues={{cep: ""}}
+            onSubmit={(values) => console.log(values)}
+            enableReinitialize
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <TextField 
+                    mask="cep"
+                    name="cep"
+                    label="CEP"
+                  />
+                </Form>
+            )}
+        </Formik>
+      </div>
+</Playground>
+
+
+## Custom Mask
+
+<Playground>
+      <div style={{padding: 40}}>
+        <Formik
+            initialValues={{mask: ""}}
+            onSubmit={(values) => console.log(values)}
+            enableReinitialize
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <TextField 
+                    mask={[/\d/, /\d/, '.', /\d/, /\d/, /\d/]}
+                    name="mask"
+                    label="00.000"
+                  />
+                </Form>
+            )}
+        </Formik>
+      </div>
+</Playground>
+
+
+## Currency Mask
+
+<Playground>
+      <div style={{padding: 40}}>
+        <Formik
+            initialValues={{currency: ""}}
+            onSubmit={(values) => console.log(values)}
+            enableReinitialize
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <TextField 
+                    currency
+                    name="currency"
+                    label="Money"
+                  />
+                </Form>
+            )}
+        </Formik>
+      </div>
+</Playground>
+
+## Select Field
+
+
+<Playground>
+      <div style={{padding: 40}}>
+        <Formik
+            initialValues={{typeDocument: ""}}
+            onSubmit={(values) => console.log(values)}
+            enableReinitialize
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <TextField 
+                    select
+                    name="typeDocument"
+                    label="Document Type"
+                    fullWidth
+                  >
+                    <MenuItem value="cpf">CPF</MenuItem>
+                    <MenuItem value="cnpj">CNPJ</MenuItem>
+                  </TextField>
+                </Form>
+            )}
+        </Formik>
+      </div>
+</Playground>
