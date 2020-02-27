@@ -1,0 +1,66 @@
+---
+name: TextField
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import { TextField } from './Form';
+import { Formik, Form } from 'formik';
+import {
+  Container, Grid
+} from '@material-ui/core';
+
+# TextField
+
+TextField
+
+### Best practices
+
+- 
+
+## Properties
+
+<Props of={TextField} />
+
+## Basic usage
+
+<Playground>
+      <div style={{padding: 40}}>
+        <Formik
+            initialValues={{name: ""}}
+            onSubmit={(values) => console.log(values)}
+            enableReinitialize
+            >
+              {({ isSubmitting }) => (
+                <Form id="form-auth">
+                  <TextField 
+                    name="name"
+                    label="Name"
+                  />
+                </Form>
+            )}
+        </Formik>
+      </div>
+</Playground>
+
+## Phone Mask
+
+<Playground>
+      <div style={{padding: 40}}>
+        <Formik
+            initialValues={{phone: ""}}
+            onSubmit={(values) => console.log(values)}
+            enableReinitialize
+            >
+              {({ isSubmitting }) => (
+                <Form id="form-auth">
+                  <TextField 
+                    mask="phone"
+                    name="phone"
+                    label="Phone"
+                  />
+                </Form>
+            )}
+        </Formik>
+      </div>
+</Playground>

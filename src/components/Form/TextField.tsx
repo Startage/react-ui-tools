@@ -6,13 +6,21 @@ import { BaseField } from './BaseField';
 import { MaskField } from './MasksField';
 import { CurrencyField } from './CurrencyField';
 
+
+interface TextFieldProps {
+  name: string,
+  children: React.ReactNode,
+  mask?: 'phone' | 'cpfCnpj' | 'cpf' | 'cnpj' | 'cep' | object[],
+  currency?: boolean,
+}
+
 const TextField = ({
   name,
   children,
   mask,
   currency,
   ...others
-}: any) => (
+}: TextFieldProps) => (
     <Field name={name}>
     {
       ({ field, form }: any) => {
