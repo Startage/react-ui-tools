@@ -9,16 +9,20 @@ import { CurrencyField } from './CurrencyField';
 
 interface TextFieldProps {
   name: string,
+  label: string,
   children: React.ReactNode,
   mask?: 'phone' | 'cpfCnpj' | 'cpf' | 'cnpj' | 'cep' | object[],
+  select?: boolean,
   currency?: boolean,
 }
 
 const TextField = ({
   name,
+  label,
   children,
   mask,
   currency,
+  select,
   ...others
 }: TextFieldProps) => (
     <Field name={name}>
@@ -40,12 +44,14 @@ const TextField = ({
 
         return (
           <BaseField
+          label={label}
           name={name}
           field={field}
           hasError={hasError}
           errorMessage={errorMessage}
           inputComponent={inputComponent}
           mask={mask}
+          select={select}
           {...others}
           >
             {children}
