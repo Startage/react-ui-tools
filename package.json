@@ -1,26 +1,29 @@
 {
-  "private": true,
-  "name": "docz-example-typescript",
-  "version": "2.0.0-rc.41",
+  "private": false,
+  "name": "@startage/react-ui-tools",
+  "version": "1.0.0",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
-    "src/",
-    "doczrc.js",
-    "tsconfig.json",
-    "package.json"
+    "build"
   ],
   "scripts": {
     "dev": "docz dev",
-    "build": "docz build",
+    "prepublish": "npm run build",
+    "build": "tsc --noEmit false",
+    "buildx": "tsc src/components/* --target ES5 --jsx react --ignore *.mdx --outDir ./build",
+    "build-doc": "docz build",
     "deploy": "gh-pages -d .docz",
     "publish-demo": "npm run build && npm run deploy"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.14",
+    "@emotion/styled": "^10.0.14",
     "@material-ui/core": "^4.9.0",
     "@material-ui/icons": "^4.5.1",
     "@material-ui/pickers": "^3.2.10",
-    "@emotion/core": "^10.0.14",
-    "@emotion/styled": "^10.0.14",
     "docz": "latest",
     "eslint-config-airbnb-typescript": "^6.3.1",
     "formik": "^2.1.3",
@@ -36,6 +39,7 @@
     "@types/material-ui": "^0.21.7",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
+    "@types/react-text-mask": "^5.4.6",
     "@types/yup": "^0.26.29",
     "@typescript-eslint/eslint-plugin": "^2.19.0",
     "@typescript-eslint/parser": "^2.19.0",
