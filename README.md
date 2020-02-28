@@ -1,7 +1,6 @@
 # React Ui Tools
 
-## Using `create-docz-app`
-
+## Using 
 ```sh
 npm install @startage/react-ui-tools
 # or
