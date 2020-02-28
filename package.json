@@ -16,7 +16,6 @@
     "dev": "docz dev",
     "prepublish": "npm run build",
     "build": "tsc --noEmit false",
-    "buildx": "tsc src/components/* --target ES5 --jsx react --ignore *.mdx --outDir ./build",
     "build-doc": "docz build",
     "deploy": "gh-pages -d .docz",
     "publish-demo": "npm run build && npm run deploy"
