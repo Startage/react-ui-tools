@@ -6,14 +6,18 @@ import { BaseField } from './BaseField';
 import { MaskField } from './MasksField';
 import { CurrencyField } from './CurrencyField';
 
-
 interface TextFieldProps {
   name: string,
   label: string,
-  children: React.ReactNode,
+  id?: string,
+  type?: 'text' | 'number' | 'hidden' | 'password' | 'date' | 'datetime-local' | 'tel' | 'time' | 'url' | 'week' | 'month' | 'email' | 'search',
+  children?: React.ReactNode,
   mask?: 'phone' | 'cpfCnpj' | 'cpf' | 'cnpj' | 'cep' | object[],
   select?: boolean,
   currency?: boolean,
+  fullWidth?: boolean,
+  startAdornment?: React.ReactNode,
+  endAdornment?: React.ReactNode,
 }
 
 const TextField = ({

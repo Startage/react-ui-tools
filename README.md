@@ -1,29 +1,16 @@
-# Typescript Docz example
+# React Ui Tools
 
 ## Using `create-docz-app`
 
 ```sh
-npx create-docz-app docz-app-typescript --example typescript
+npm install @startage/react-ui-tools
 # or
-yarn create docz-app docz-app-typescript --example typescript
+yarn add @startage/react-ui-tools
 ```
 
-## Download manually
+## Documentation
 
-```sh
-curl https://codeload.github.com/doczjs/docz/tar.gz/master | tar -xz --strip=2 docz-master/examples/typescript
-mv typescript docz-typescript-example
-cd docz-typescript-example
-```
+[Docs](https://startage.github.io/react-ui-tools/)
 
-## Setup
 
-```sh
-yarn # npm i
-```
 
-## Run
-
-```sh
-yarn dev # npm run dev
-```
