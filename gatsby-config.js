@@ -40,7 +40,7 @@ const config = {
         menu: [],
         mdPlugins: [],
         hastPlugins: [],
-        ignore: [],
+        ignore: ['dist'],
         typescript: true,
         ts: false,
         propsParser: true,

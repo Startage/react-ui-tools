@@ -8,7 +8,10 @@
     "native": false,
     "themeConfig": {},
     "separator": "-",
-    "typescript": true
+    "typescript": true,
+    "ignore": [
+      "dist"
+    ]
   },
   "entries": [
     {
