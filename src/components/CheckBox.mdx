@@ -1,0 +1,40 @@
+---
+name: CheckBox
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import { CheckBox } from './Form';
+import { Formik, Form } from 'formik';
+import {
+  Container, Grid, MenuItem
+} from '@material-ui/core';
+
+# CheckBox
+
+Formik is required to use CheckBox 
+
+## Properties
+
+<Props of={CheckBox} />
+
+## Basic usage
+
+<Playground>
+      <div style={{padding: 40}}>
+        <Formik
+            initialValues={{permission: false}}
+            onSubmit={(values) => console.log(values)}
+            enableReinitialize
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <CheckBox 
+                    name="permission"
+                    label="Permitir"
+                  />
+                </Form>
+            )}
+        </Formik>
+      </div>
+</Playground>
