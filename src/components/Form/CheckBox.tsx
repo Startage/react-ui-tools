@@ -30,7 +30,7 @@ const CheckBox: React.FunctionComponent<CheckBoxProps> = ({
           ({ field, form }: any) => {
             const hasError = t(form.errors, name).safeObject
             && t(form.touched, name).safeObject;
-            const errorMessage = t(form.errors, name).safeObject;
+            const errorMessage = hasError ? t(form.errors, name).safeObject : '';
 
             return (
                 <FormControl error={hasError} component="fieldset">
