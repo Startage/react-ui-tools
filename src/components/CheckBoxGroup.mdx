@@ -1,0 +1,70 @@
+---
+name: CheckBoxGroup
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import { CheckBoxGroup } from './Form';
+import { Formik, Form } from 'formik';
+import {
+  Container, Grid, MenuItem
+} from '@material-ui/core';
+
+# CheckBoxGroup
+
+Formik is required to use CheckBoxGroup
+
+## Properties
+
+<Props of={CheckBoxGroup} />
+
+## Basic usage
+
+<Playground>
+      <div style={{padding: 40}}>
+        <Formik
+            initialValues={{name: []}}
+            onSubmit={(values) => console.log(values)}
+            enableReinitialize
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <CheckBoxGroup 
+                    name="name"
+                    label="Tipo"
+                    options={[
+                      { value: 'test', label: 'Teste' },
+                      { value: 'test2', label: 'Teste 2' }
+                    ]}
+                  />
+                </Form>
+            )}
+        </Formik>
+      </div>
+</Playground>
+
+## Inline
+
+<Playground>
+      <div style={{padding: 40}}>
+        <Formik
+            initialValues={{name: []}}
+            onSubmit={(values) => console.log(values)}
+            enableReinitialize
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <CheckBoxGroup 
+                    name="name"
+                    label="Tipo"
+                    inline
+                    options={[
+                      { value: 'test', label: 'Teste' },
+                      { value: 'test2', label: 'Teste 2' }
+                    ]}
+                  />
+                </Form>
+            )}
+        </Formik>
+      </div>
+</Playground>

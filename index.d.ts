@@ -16,7 +16,29 @@ export interface TextFieldProps {
 
 declare const TextField: React.FunctionComponent<TextFieldProps>;
 
+export interface CheckBoxGroupProps {
+  name: string
+  options: CheckBoxItemProps[]
+  label: string
+  className?: string
+  inline?: boolean
+}
+
+declare const CheckBoxGroup: React.FunctionComponent<CheckBoxGroupProps>;
+
+export interface CheckBoxProps {
+  label: string
+  name: string
+  color?: string
+  indeterminate?: boolean
+  customIcon?: React.ReactNode
+  customCheckedIcon?: React.ReactNode
+}
+
+
+declare const CheckBox: React.FunctionComponent<CheckBoxProps>;
+
 declare module '@startage/react-ui-tools' {
 }
 
-export { TextField };
+export { TextField, CheckBoxGroup, CheckBox };

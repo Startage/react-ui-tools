@@ -4,6 +4,7 @@ module.exports = {
         "es6": true
     },
     "extends": [
+        'plugin:react/recommended',
         "airbnb-typescript/base"
     ],
     "globals": {
@@ -20,12 +21,28 @@ module.exports = {
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "import"
     ],
     "rules": {
         "import/prefer-default-export": "off",
         "no-underscore-dangle": "off",
         "class-methods-use-this": "off",
-        "no-restricted-syntax": "off"
+        "no-restricted-syntax": "off",
+        "react/jsx-uses-react": "off",
+        "react/prop-types": "off"
+    },
+    "settings": {
+        "import/parsers": {
+            "@typescript-eslint/parser": [".ts", ".tsx"]
+        },
+        "import/resolver": {
+            "typescript": {
+                "directory": [
+                    "./tsconfig.paths.json",
+                    "./tsconfig.json"
+                ]
+            },
+        }
     },
 };
