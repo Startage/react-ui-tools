@@ -26,7 +26,7 @@ const CheckBoxGroup: React.FunctionComponent<CheckBoxGroupProps> = ({
       render={({ form }) => {
         const hasError = t(form.errors, name).safeObject
         && t(form.touched, name).safeObject;
-        const errorMessage = t(form.errors, name).safeObject;
+        const errorMessage = hasError ? t(form.errors, name).safeObject : '';
 
         return (
         <div className={className}>
