@@ -8,7 +8,7 @@ import { CurrencyField } from './CurrencyField';
 
 interface TextFieldProps {
   name: string,
-  label: string,
+  label: React.ReactNode,
   id?: string,
   type?: 'text' | 'number' | 'hidden' | 'password' | 'date' | 'datetime-local' | 'tel' | 'time' | 'url' | 'week' | 'month' | 'email' | 'search',
   children?: React.ReactNode,

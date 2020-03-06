@@ -6,7 +6,7 @@ import { Field } from 'formik';
 
 
 export interface CheckBoxItemProps {
-  label: string
+  label: React.ReactNode
   value: string
   name: string
   color?: string

@@ -13,7 +13,7 @@ import { CheckBoxItem, CheckBoxItemProps } from './CheckBoxItem';
 interface CheckBoxGroupProps {
   name: string
   options: CheckBoxItemProps[]
-  label: string
+  label: React.ReactNode
   className?: string
   inline?: boolean
 }

@@ -9,7 +9,7 @@ import { Field } from 'formik';
 
 
 export interface CheckBoxProps {
-  label: string
+  label: React.ReactNode
   name: string
   color?: string
   indeterminate?: boolean
