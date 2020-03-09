@@ -15,6 +15,7 @@ export interface CheckBoxProps {
   indeterminate?: boolean
   customIcon?: React.ReactNode
   customCheckedIcon?: React.ReactNode
+  className?: string
 }
 
 const CheckBox: React.FunctionComponent<CheckBoxProps> = ({
@@ -24,6 +25,7 @@ const CheckBox: React.FunctionComponent<CheckBoxProps> = ({
   indeterminate,
   customIcon,
   customCheckedIcon,
+  className,
 }) => (
     <Field name={name}>
       {
@@ -33,7 +35,10 @@ const CheckBox: React.FunctionComponent<CheckBoxProps> = ({
             const errorMessage = hasError ? t(form.errors, name).safeObject : '';
 
             return (
-                <FormControl error={hasError} component="fieldset">
+                <FormControl
+                error={hasError}
+                className={className}
+                component="fieldset">
                     <FormControlLabel
                         control={(
                             <Checkbox

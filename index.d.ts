@@ -12,6 +12,7 @@ export interface TextFieldProps {
   fullWidth?: boolean,
   startAdornment?: React.ReactNode,
   endAdornment?: React.ReactNode,
+  className?: string,
 }
 
 declare const TextField: React.FunctionComponent<TextFieldProps>;
@@ -43,6 +44,7 @@ export interface CheckBoxProps {
   indeterminate?: boolean
   customIcon?: React.ReactNode
   customCheckedIcon?: React.ReactNode
+  className?: string,
 }
 
 

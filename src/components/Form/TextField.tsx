@@ -18,6 +18,7 @@ interface TextFieldProps {
   fullWidth?: boolean,
   startAdornment?: React.ReactNode,
   endAdornment?: React.ReactNode,
+  className?: string,
 }
 
 const TextField = ({
@@ -27,6 +28,7 @@ const TextField = ({
   mask,
   currency,
   select,
+  className,
   ...others
 }: TextFieldProps) => (
     <Field name={name}>
@@ -56,6 +58,7 @@ const TextField = ({
           inputComponent={inputComponent}
           mask={mask}
           select={select}
+          className={className}
           {...others}
           >
             {children}

@@ -19,6 +19,7 @@ const BaseField = ({
   mask,
   hasError,
   errorMessage,
+  className,
 }: any) => (
       <Input
       size="small"
@@ -28,6 +29,7 @@ const BaseField = ({
       fullWidth={fullWidth}
       type={type || 'text'}
       error={hasError}
+      className={className}
       helperText={errorMessage}
       label={label}
       select={select}
