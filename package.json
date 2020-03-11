@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@startage/react-ui-tools",
-  "version": "1.2.11",
+  "version": "1.2.12",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
