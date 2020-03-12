@@ -19,19 +19,41 @@ const BaseField = ({
   mask,
   hasError,
   errorMessage,
+  onChange,
+  onBlur,
+  onFocus,
+  className,
+  readOnly,
+  disabled,
+  ...others
 }: any) => (
       <Input
       size="small"
       variant='outlined'
       {...field}
+      onChange={(e) => {
+        field.onChange(e);
+        if (onChange) onChange(e);
+      }}
+      onBlur={(e) => {
+        if (field.onBlur) field.onBlur(e);
+        if (onBlur) onBlur(e);
+      }}
+      onFocus={(e) => {
+        if (field.onFocus) field.onFocus(e);
+        if (onFocus) onFocus(e);
+      }}
       id={id}
       fullWidth={fullWidth}
       type={type || 'text'}
       error={hasError}
+      className={className}
       helperText={errorMessage}
       label={label}
       select={select}
       InputProps={{
+        readOnly,
+        disabled,
         inputComponent,
         inputProps: { mask },
         startAdornment: startAdornment && (
@@ -45,6 +67,7 @@ const BaseField = ({
             </InputAdornment>
         ),
       }}
+      {...others}
     >
       { children }
       </Input>

@@ -5,7 +5,7 @@ import { typesMasks } from './typesMask';
 
 
 const MaskField = (props: any): any => {
-  const { mask, ...other } = props;
+  const { mask, inputRef, ...other } = props;
   const { style, inputMode } = typesMasks(mask);
 
   return (
