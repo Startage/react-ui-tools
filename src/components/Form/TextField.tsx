@@ -2,11 +2,15 @@ import React from 'react';
 import { Field } from 'formik';
 import t from 'typy';
 
+import {
+  BaseTextFieldProps,
+} from '@material-ui/core';
+
 import { BaseField } from './BaseField';
 import { MaskField } from './MasksField';
 import { CurrencyField } from './CurrencyField';
 
-interface TextFieldProps {
+interface TextFieldProps extends BaseTextFieldProps {
   name: string,
   label: React.ReactNode,
   id?: string,
@@ -19,6 +23,11 @@ interface TextFieldProps {
   startAdornment?: React.ReactNode,
   endAdornment?: React.ReactNode,
   className?: string,
+  onChange?: (e: any) => void,
+  onBlur?: (e: any) => void,
+  onFocus?: (e: any) => void,
+  readOnly?: boolean,
+  disabled?: boolean
 }
 
 const TextField = ({

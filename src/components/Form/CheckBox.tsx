@@ -1,21 +1,21 @@
 import React from 'react';
 
 import {
-  FormControlLabel, Checkbox, FormControl, FormHelperText,
+  FormControlLabel, Checkbox, FormControl, FormHelperText, CheckboxProps,
 } from '@material-ui/core';
 
 import t from 'typy';
 import { Field } from 'formik';
 
 
-export interface CheckBoxProps {
+export interface CheckBoxProps extends CheckboxProps {
   label: React.ReactNode
   name: string
-  color?: string
   indeterminate?: boolean
   customIcon?: React.ReactNode
   customCheckedIcon?: React.ReactNode
   className?: string
+  onChange?: (e: any) => void
 }
 
 const CheckBox: React.FunctionComponent<CheckBoxProps> = ({
@@ -26,6 +26,10 @@ const CheckBox: React.FunctionComponent<CheckBoxProps> = ({
   customIcon,
   customCheckedIcon,
   className,
+  onChange,
+  onBlur,
+  onFocus,
+  ...others
 }) => (
     <Field name={name}>
       {
@@ -42,6 +46,7 @@ const CheckBox: React.FunctionComponent<CheckBoxProps> = ({
                     <FormControlLabel
                         control={(
                             <Checkbox
+                                {...others}
                                 color={color}
                                 checked={!!field.value}
                                 icon={customIcon}
@@ -49,6 +54,18 @@ const CheckBox: React.FunctionComponent<CheckBoxProps> = ({
                                 indeterminate={indeterminate}
                                 className="checkBox"
                                 {...field}
+                                onBlur={(e) => {
+                                  field.onBlur(e);
+                                  if (onBlur) onBlur(e);
+                                }}
+                                onFocus={(e) => {
+                                  field.onFocus(e);
+                                  if (onFocus) onFocus(e);
+                                }}
+                                onChange={(e) => {
+                                  field.onChange(e);
+                                  if (onChange) onChange(e);
+                                }}
                             />
                         )}
                         label={label}

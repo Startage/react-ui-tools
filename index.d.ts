@@ -1,6 +1,11 @@
 import * as React from 'react';
 
-export interface TextFieldProps {
+import {
+  CheckboxProps,
+  BaseTextFieldProps,
+} from '@material-ui/core';
+
+export interface TextFieldProps extends BaseTextFieldProps {
   name: string,
   label: React.ReactNode,
   id?: string,
@@ -13,15 +18,19 @@ export interface TextFieldProps {
   startAdornment?: React.ReactNode,
   endAdornment?: React.ReactNode,
   className?: string,
+  onChange?: (e: any) => void,
+  onBlur?: (e: any) => void,
+  onFocus?: (e: any) => void,
+  readOnly?: boolean,
+  disabled?: boolean
 }
 
 declare const TextField: React.FunctionComponent<TextFieldProps>;
 
-export interface CheckBoxItemProps {
+export interface CheckBoxItemProps extends CheckboxProps {
   label: React.ReactNode
   value: string
   name: string
-  color?: string
   indeterminate?: boolean
   customIcon?: React.ReactNode
   customCheckedIcon?: React.ReactNode
@@ -37,10 +46,9 @@ export interface CheckBoxGroupProps {
 
 declare const CheckBoxGroup: React.FunctionComponent<CheckBoxGroupProps>;
 
-export interface CheckBoxProps {
+export interface CheckBoxProps extends CheckboxProps {
   label: React.ReactNode
   name: string
-  color?: string
   indeterminate?: boolean
   customIcon?: React.ReactNode
   customCheckedIcon?: React.ReactNode
