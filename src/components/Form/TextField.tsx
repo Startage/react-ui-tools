@@ -10,7 +10,7 @@ import { BaseField } from './BaseField';
 import { MaskField } from './MasksField';
 import { CurrencyField } from './CurrencyField';
 
-interface TextFieldProps extends BaseTextFieldProps {
+export interface TextFieldProps extends BaseTextFieldProps {
   name: string,
   label: React.ReactNode,
   id?: string,
