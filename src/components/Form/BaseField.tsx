@@ -25,6 +25,7 @@ const BaseField = ({
   className,
   readOnly,
   disabled,
+  InputLabelProps = {},
   ...others
 }: any) => (
       <Input
@@ -51,6 +52,10 @@ const BaseField = ({
       helperText={errorMessage}
       label={label}
       select={select}
+      InputLabelProps={{
+        ...InputLabelProps,
+        shrink: InputLabelProps.shrink || !!field.value,
+      }}
       InputProps={{
         readOnly,
         disabled,
