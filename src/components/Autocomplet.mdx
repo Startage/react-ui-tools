@@ -1,0 +1,42 @@
+---
+name: Autocomplet
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import { Autocomplet } from './Form';
+import { Formik, Form } from 'formik';
+import {
+  Container, Grid, MenuItem
+} from '@material-ui/core';
+
+# Autocomplet
+
+Formik is required to use Autocomplet
+
+## Properties
+
+<Props of={Autocomplet} />
+
+## Basic usage
+
+<Playground>
+      <div style={{padding: 40}}>
+        <Formik
+            initialValues={{name: ""}}
+            onSubmit={(values) => console.log(values)}
+            enableReinitialize
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <Autocomplet 
+                    name="name"
+                    label="Name"
+                    options={[{name: 'Junior'}, {name: 'Cauã'}]}
+                    getOptionLabel={(item) => item.name}
+                  />
+                </Form>
+            )}
+        </Formik>
+      </div>
+</Playground>

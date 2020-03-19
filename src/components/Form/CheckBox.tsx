@@ -55,11 +55,11 @@ const CheckBox: React.FunctionComponent<CheckBoxProps> = ({
                                 className="checkBox"
                                 {...field}
                                 onBlur={(e) => {
-                                  field.onBlur(e);
+                                  if (field.onBlur) field.onBlur(e);
                                   if (onBlur) onBlur(e);
                                 }}
                                 onFocus={(e) => {
-                                  field.onFocus(e);
+                                  if (field.onFocus) field.onFocus(e);
                                   if (onFocus) onFocus(e);
                                 }}
                                 onChange={(e) => {
