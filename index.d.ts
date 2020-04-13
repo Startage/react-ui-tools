@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {
   CheckboxProps,
-  BaseTextFieldProps,
+  BaseTextFieldProps, PopperProps,
 } from '@material-ui/core';
 import {
   RenderGroupParams, RenderInputParams, RenderOptionState, GetTagProps,
@@ -101,9 +101,22 @@ export interface AutocompletProps {
 
 declare const Autocomplet: React.FunctionComponent<AutocompletProps>;
 
+
+interface InputFileProps {
+  name: string;
+  id?: string;
+  className?: string;
+  multiple?: boolean;
+  textDragActive?: string;
+  textDrag?: string;
+  label?: string;
+}
+
+declare const InputFile: React.FunctionComponent<InputFileProps>;
+
 declare module '@startage/react-ui-tools' {
 }
 
 export {
-  TextField, CheckBoxGroup, CheckBox, Autocomplet,
+  TextField, CheckBoxGroup, CheckBox, Autocomplet, InputFile,
 };
