@@ -1,10 +1,10 @@
 ---
-name: Autocomplet
+name: InputFile
 menu: Components
 ---
 
 import { Playground, Props } from 'docz'
-import { Autocomplet } from './Form';
+import { InputFile } from './Form';
 import { Formik, Form } from 'formik';
 import {
   Container, Grid, MenuItem
@@ -12,11 +12,12 @@ import {
 
 # Autocomplet
 
-Formik is required to use Autocomplet
+Formik is required to use InputFile
+React-dropzone is required to use InputFile
 
 ## Properties
 
-<Props of={Autocomplet} />
+<Props of={InputFile} />
 
 ## Basic usage
 
@@ -29,11 +30,9 @@ Formik is required to use Autocomplet
             >
               {({ isSubmitting }) => (
                 <Form>
-                  <Autocomplet 
+                  <InputFile
                     name="name"
                     label="Name"
-                    options={[{name: 'Junior'}, {name: 'Cauã'}]}
-                    getOptionLabel={(item) => item.name}
                   />
                 </Form>
             )}

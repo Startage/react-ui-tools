@@ -5,9 +5,15 @@ interface ContentFileProps {
   active: boolean;
   theme: Theme;
   hasError: boolean;
+  hasLabel: boolean;
 }
 
-const contentFile = ({ active, theme, hasError }: ContentFileProps) => css`
+const contentFile = ({
+  active,
+  theme,
+  hasError,
+  hasLabel,
+}: ContentFileProps) => css`
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -25,6 +31,7 @@ const contentFile = ({ active, theme, hasError }: ContentFileProps) => css`
   min-height: 135px;
   text-align: center;
   
+  ${hasLabel ? 'margin-top: 8px;' : ''}
   ${hasError ? `border-color: ${theme.palette.error.main};` : ''}
   ${active ? `border-color: ${theme.palette.primary.main};` : ''}
   
@@ -47,6 +54,7 @@ const contentFile = ({ active, theme, hasError }: ContentFileProps) => css`
   .file-item > span {
     display: inline-block;
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
     width: calc(100% - 30px);
   }

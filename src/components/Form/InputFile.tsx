@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 
 import {
-  Theme, useTheme, FormHelperText, FormControl,
+  Theme, useTheme, FormHelperText, Typography, FormLabel,
 } from '@material-ui/core';
 
 import styled from '@emotion/styled';
@@ -19,6 +19,7 @@ interface ContentFileProps {
   active: boolean;
   theme: Theme;
   hasError: boolean;
+  hasLabel: boolean;
 }
 
 const ContentFile = styled.div<ContentFileProps>`${contentFile}`;
@@ -30,6 +31,7 @@ interface InputFileProps {
   multiple?: boolean;
   textDragActive?: string;
   textDrag?: string;
+  label?: string;
 }
 
 const InputFile: React.FunctionComponent<InputFileProps> = ({
@@ -39,6 +41,7 @@ const InputFile: React.FunctionComponent<InputFileProps> = ({
   multiple = true,
   textDragActive = 'Solte o arquivo aqui',
   textDrag = 'Solte seu arquivo aqui ou clique para escolher',
+  label,
 }) => {
   const theme = useTheme();
   const { setFieldValue } = useFormikContext();
@@ -58,7 +61,8 @@ const InputFile: React.FunctionComponent<InputFileProps> = ({
             <li
               className='file-item'
               key={item.name}>
-              <span>{item.name}</span> <CloseIcon
+              <Typography variant='caption'>{item.name}</Typography>
+              <CloseIcon
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -74,7 +78,7 @@ const InputFile: React.FunctionComponent<InputFileProps> = ({
     }
     return (
       <div className='file-item'>
-        <span>{value?.name}</span>
+        <Typography variant='caption'>{value.name}</Typography>
         <CloseIcon
           onClick={(e) => {
             e.preventDefault();
@@ -96,9 +100,15 @@ const InputFile: React.FunctionComponent<InputFileProps> = ({
 
           return (
             <div className={className}>
+              { label && (
+                <FormLabel>
+                {label}
+              </FormLabel>
+              ) }
               <ContentFile
                 {...getRootProps()}
                 theme={theme}
+                hasLabel={!!label}
                 hasError={hasError}
                 active={isDragActive}>
                 <input
