@@ -51,6 +51,10 @@ const contentFile = ({
     overflow: hidden;
   }
   
+  .file-item {
+    width: 100%;
+  }
+  
   .file-item > span {
     display: inline-block;
     overflow: hidden;
