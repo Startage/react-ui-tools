@@ -47,7 +47,7 @@ interface AutocompletProps {
   renderOption?: (option: any, state: RenderOptionState) => React.ReactNode;
   renderTags?: (value: any[], getTagProps: GetTagProps) => React.ReactNode;
   size?: 'small' | 'medium';
-  multiple?: boolean;
+  multiple?: any;
   filterSelectedOptions?: boolean;
   freeSolo?: boolean;
 }
