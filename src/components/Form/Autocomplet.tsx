@@ -47,8 +47,10 @@ interface AutocompletProps {
   renderOption?: (option: any, state: RenderOptionState) => React.ReactNode;
   renderTags?: (value: any[], getTagProps: GetTagProps) => React.ReactNode;
   size?: 'small' | 'medium';
+  multiple?: boolean;
+  filterSelectedOptions?: boolean;
+  freeSolo?: boolean;
 }
-
 
 const Autocomplet: React.FunctionComponent<AutocompletProps> = ({
   options,
@@ -75,6 +77,9 @@ const Autocomplet: React.FunctionComponent<AutocompletProps> = ({
   renderOption,
   renderTags,
   size,
+  multiple,
+  filterSelectedOptions,
+  freeSolo,
   ...others
 }) => (
     <Field name={name}>
@@ -113,6 +118,9 @@ const Autocomplet: React.FunctionComponent<AutocompletProps> = ({
             renderOption={renderOption}
             renderTags={renderTags}
             size={size}
+            filterSelectedOptions={filterSelectedOptions}
+            multiple={multiple}
+            freeSolo={freeSolo}
             renderInput={(params: any) => (<BaseField
                 field={{ ...field, onChange: (e: any) => {} }}
                 hasError={hasError}

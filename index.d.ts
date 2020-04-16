@@ -97,6 +97,9 @@ export interface AutocompletProps {
   renderOption?: (option: any, state: RenderOptionState) => React.ReactNode;
   renderTags?: (value: any[], getTagProps: GetTagProps) => React.ReactNode;
   size?: 'small' | 'medium';
+  multiple?: boolean;
+  filterSelectedOptions?: boolean;
+  freeSolo?: boolean;
 }
 
 declare const Autocomplet: React.FunctionComponent<AutocompletProps>;
