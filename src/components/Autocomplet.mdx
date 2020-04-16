@@ -29,10 +29,36 @@ Formik is required to use Autocomplet
             >
               {({ isSubmitting }) => (
                 <Form>
-                  <Autocomplet 
+                  <Autocomplet
                     name="name"
                     label="Name"
                     options={[{name: 'Junior'}, {name: 'Cauã'}]}
+                    getOptionLabel={(item) => item.name}
+                  />
+                </Form>
+            )}
+        </Formik>
+      </div>
+</Playground>
+
+
+## Multiple
+
+<Playground>
+      <div style={{padding: 40}}>
+        <Formik
+            initialValues={{name: []}}
+            onSubmit={(values) => console.log(values)}
+            enableReinitialize
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <Autocomplet
+                    name="name"
+                    label="Name"
+                    options={[{name: 'Junior'}, {name: 'Cauã'}]}
+                    multiple
+                    filterSelectedOptions
                     getOptionLabel={(item) => item.name}
                   />
                 </Form>
