@@ -24,7 +24,7 @@ interface ContentFileProps {
 
 const ContentFile = styled.div<ContentFileProps>`${contentFile}`;
 
-interface InputFileProps {
+interface InputFileProps extends React.HTMLProps<HTMLInputElement> {
   name: string;
   id?: string;
   className?: string;
@@ -42,6 +42,8 @@ const InputFile: React.FunctionComponent<InputFileProps> = ({
   textDragActive = 'Solte o arquivo aqui',
   textDrag = 'Solte seu arquivo aqui ou clique para escolher',
   label,
+  onChange,
+  ...others
 }) => {
   const theme = useTheme();
   const { setFieldValue } = useFormikContext();
@@ -113,7 +115,12 @@ const InputFile: React.FunctionComponent<InputFileProps> = ({
                 active={isDragActive}>
                 <input
                   id={id}
+                  {...others}
                   {...getInputProps()}
+                  onChange={(event) => {
+                    field.onChange(event);
+                    if (onChange) onChange(event);
+                  }}
                   multiple={multiple}
                 />
                 <CloudUploadIcon fontSize='large' />
