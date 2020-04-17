@@ -105,7 +105,7 @@ export interface AutocompletProps {
 declare const Autocomplet: React.FunctionComponent<AutocompletProps>;
 
 
-interface InputFileProps {
+interface InputFileProps extends React.HTMLProps<HTMLInputElement> {
   name: string;
   id?: string;
   className?: string;

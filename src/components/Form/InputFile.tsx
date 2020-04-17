@@ -118,7 +118,8 @@ const InputFile: React.FunctionComponent<InputFileProps> = ({
                   {...others}
                   {...getInputProps()}
                   onChange={(event) => {
-                    field.onChange(event);
+                    const dropzoneProps: any = { ...getInputProps() };
+                    if (dropzoneProps) dropzoneProps.onChange(event);
                     if (onChange) onChange(event);
                   }}
                   multiple={multiple}
