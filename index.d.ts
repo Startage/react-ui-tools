@@ -105,13 +105,13 @@ export interface AutocompletProps {
 declare const Autocomplet: React.FunctionComponent<AutocompletProps>;
 
 
-interface InputFileProps {
+export interface InputFileProps extends React.HTMLProps<HTMLInputElement> {
   name: string;
   id?: string;
   className?: string;
   multiple?: boolean;
-  textDragActive?: string;
-  textDrag?: string;
+  textDragActive?: string | React.ReactNode;
+  textDrag?: string | React.ReactNode;
   label?: string;
 }
 

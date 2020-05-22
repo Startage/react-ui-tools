@@ -30,6 +30,7 @@ const contentFile = ({
   transition: border .24s ease-in-out;
   min-height: 135px;
   text-align: center;
+  cursor: pointer;
   
   ${hasLabel ? 'margin-top: 8px;' : ''}
   ${hasError ? `border-color: ${theme.palette.error.main};` : ''}

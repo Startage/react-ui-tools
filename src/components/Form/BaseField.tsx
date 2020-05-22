@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
   TextField as Input, InputAdornment,
@@ -27,8 +27,11 @@ const BaseField = ({
   disabled,
   InputLabelProps = {},
   ...others
-}: any) => (
-      <Input
+}: any) => {
+  const [focused, setFocused] = useState(false);
+
+  return (
+    <Input
       size="small"
       variant='outlined'
       {...field}
@@ -39,10 +42,12 @@ const BaseField = ({
       onBlur={(e) => {
         if (field.onBlur) field.onBlur(e);
         if (onBlur) onBlur(e);
+        setFocused(false);
       }}
       onFocus={(e) => {
         if (field.onFocus) field.onFocus(e);
         if (onFocus) onFocus(e);
+        setFocused(true);
       }}
       id={id}
       fullWidth={fullWidth}
@@ -54,7 +59,7 @@ const BaseField = ({
       select={select}
       InputLabelProps={{
         ...InputLabelProps,
-        shrink: InputLabelProps.shrink || !!field.value,
+        shrink: InputLabelProps.shrink || !!field.value || focused,
       }}
       InputProps={{
         readOnly,
@@ -62,21 +67,22 @@ const BaseField = ({
         inputComponent,
         inputProps: { mask },
         startAdornment: startAdornment && (
-            <InputAdornment position="start">
-              {startAdornment}
-            </InputAdornment>
+          <InputAdornment position="start">
+            {startAdornment}
+          </InputAdornment>
         ),
         endAdornment: endAdornment && (
-            <InputAdornment position="end">
-              {endAdornment}
-            </InputAdornment>
+          <InputAdornment position="end">
+            {endAdornment}
+          </InputAdornment>
         ),
       }}
       {...others}
     >
       { children }
-      </Input>
-);
+    </Input>
+  );
+};
 
 
 export { BaseField };
