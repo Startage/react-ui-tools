@@ -29,8 +29,8 @@ interface InputFileProps extends React.HTMLProps<HTMLInputElement> {
   id?: string;
   className?: string;
   multiple?: boolean;
-  textDragActive?: string;
-  textDrag?: string;
+  textDragActive?: string | React.ReactNode;
+  textDrag?: string | React.ReactNode;
   label?: string;
 }
 
@@ -127,8 +127,8 @@ const InputFile: React.FunctionComponent<InputFileProps> = ({
                 <CloudUploadIcon fontSize='large' />
                 {
                   isDragActive
-                    ? (<p>{textDragActive}</p>)
-                    : (<p>{textDrag}</p>)
+                    ? (<Typography>{textDragActive}</Typography>)
+                    : (<Typography>{textDrag}</Typography>)
                 }
                 { renderName(field.value) }
               </ContentFile>
