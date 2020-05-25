@@ -1,0 +1,41 @@
+---
+name: InputFile
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import { InputFile } from './Form';
+import { Formik, Form } from 'formik';
+import {
+  Container, Grid, MenuItem
+} from '@material-ui/core';
+
+# Autocomplet
+
+Formik is required to use InputFile
+React-dropzone is required to use InputFile
+
+## Properties
+
+<Props of={InputFile} />
+
+## Basic usage
+
+<Playground>
+      <div style={{padding: 40}}>
+        <Formik
+            initialValues={{name: ""}}
+            onSubmit={(values) => console.log(values)}
+            enableReinitialize
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <InputFile
+                    name="name"
+                    label="Name"
+                  />
+                </Form>
+            )}
+        </Formik>
+      </div>
+</Playground>
