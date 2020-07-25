@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",   
-    "allowJs": true,     
+    "outDir": "./dist",
+    "allowJs": true,
     "target": "es5",
     "moduleResolution": "node",
     "strict": true,
     "noImplicitAny": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "strictNullChecks": true,
     "removeComments": true,
     "declaration": false,

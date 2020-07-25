@@ -32,6 +32,7 @@ interface InputFileProps extends React.HTMLProps<HTMLInputElement> {
   textDragActive?: string | React.ReactNode;
   textDrag?: string | React.ReactNode;
   label?: string;
+  accept?: string;
 }
 
 const InputFile: React.FunctionComponent<InputFileProps> = ({
@@ -43,6 +44,7 @@ const InputFile: React.FunctionComponent<InputFileProps> = ({
   textDrag = 'Solte seu arquivo aqui ou clique para escolher',
   label,
   onChange,
+  accept,
   ...others
 }) => {
   const theme = useTheme();
@@ -115,6 +117,7 @@ const InputFile: React.FunctionComponent<InputFileProps> = ({
                 active={isDragActive}>
                 <input
                   id={id}
+                  name={name}
                   {...others}
                   {...getInputProps()}
                   onChange={(event) => {
@@ -123,6 +126,7 @@ const InputFile: React.FunctionComponent<InputFileProps> = ({
                     if (onChange) onChange(event);
                   }}
                   multiple={multiple}
+                  accept={accept}
                 />
                 <CloudUploadIcon fontSize='large' />
                 {

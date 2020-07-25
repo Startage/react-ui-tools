@@ -7,6 +7,10 @@ import {
 import {
   RenderGroupParams, RenderInputParams, RenderOptionState, GetTagProps,
 } from '@material-ui/lab';
+import { KeyboardDateInputProps } from '@material-ui/pickers/_shared/KeyboardDateInput';
+import { ExtendMui } from '@material-ui/pickers/typings/extendMui';
+import { IconButtonProps } from '@material-ui/core/IconButton';
+import { ReactNode } from 'react';
 
 export interface TextFieldProps extends BaseTextFieldProps {
   name: string,
@@ -60,7 +64,6 @@ export interface CheckBoxProps extends CheckboxProps {
 
 declare const CheckBox: React.FunctionComponent<CheckBoxProps>;
 
-
 export interface AutocompletProps {
   options: any[];
   getOptionLabel: (params: any) => string;
@@ -104,7 +107,6 @@ export interface AutocompletProps {
 
 declare const Autocomplet: React.FunctionComponent<AutocompletProps>;
 
-
 export interface InputFileProps extends React.HTMLProps<HTMLInputElement> {
   name: string;
   id?: string;
@@ -113,13 +115,62 @@ export interface InputFileProps extends React.HTMLProps<HTMLInputElement> {
   textDragActive?: string | React.ReactNode;
   textDrag?: string | React.ReactNode;
   label?: string;
+  accept?: string;
 }
 
 declare const InputFile: React.FunctionComponent<InputFileProps>;
+
+export interface DatePickerProps {
+  utcValue?: boolean;
+  className?: string;
+  name: string;
+  label: string | React.ReactNode;
+  format?: string;
+  openPicker?: () => void;
+  onChange?: (event: OnChangeEvent) => void
+  inputProps?: TextFieldProps['inputProps'];
+  InputProps?: TextFieldProps['InputProps'];
+  onBlur?: TextFieldProps['onBlur'];
+  onFocus?: TextFieldProps['onFocus'];
+  TextFieldComponent?: React.ComponentType<TextFieldProps>;
+  keyboardIcon?: React.ReactNode;
+  maskChar?: string;
+  refuse?: RegExp;
+  InputAdornmentProps?: Partial<InputAdornmentProps>;
+  KeyboardButtonProps?: Partial<IconButtonProps>;
+  rifmFormatter?: (str: string) => string;
+  allowKeyboardControl?: boolean;
+  animateYearScrolling?: boolean;
+  autoOk?: boolean;
+  disabled?: boolean;
+  disableFuture?: boolean;
+  disablePast?: boolean;
+  disableToolbar?: boolean;
+  emptyLabel?: string;
+  inputVariant?: 'standard' | 'outlined' | 'filled';
+  invalidLabel?: string;
+  maxDate?: Date;
+  maxDateMessage?: string;
+  minDate?: Date;
+  minDateMessage?: string;
+  onAccept?: (date: any) => void;
+  onClose?: () => void;
+  onOpen?: () => void;
+  open?: boolean;
+  openTo?: 'date' | 'year' | 'month';
+  orientation?: 'portrait' | 'landscape';
+  readOnly?: boolean;
+  fullWidth?: boolean;
+  onError?: (err: ReactNode, value: any) => void;
+  variant?: 'dialog' | 'inline' | 'static';
+  views?: Array<'year' | 'date' | 'month'>;
+}
+
+declare const DatePicker: React.FunctionComponent<DatePickerProps>;
 
 declare module '@startage/react-ui-tools' {
 }
 
 export {
-  TextField, CheckBoxGroup, CheckBox, Autocomplet, InputFile,
+  TextField, CheckBoxGroup, CheckBox, Autocomplet, InputFile, DatePicker,
 };

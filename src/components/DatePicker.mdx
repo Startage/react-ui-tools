@@ -1,41 +1,51 @@
 ---
-name: InputFile
+name: DatePicker
 menu: Components
 ---
 
 import { Playground, Props } from 'docz'
-import { InputFile } from './Form';
+import { DatePicker } from './Form';
 import { Formik, Form } from 'formik';
 import {
   Container, Grid, MenuItem
 } from '@material-ui/core';
 
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
+
 # Autocomplet
 
-Formik is required to use InputFile
-React-dropzone is required to use InputFile
+Formik is required to use DatePicker
+@date-io/date-fns is required to use DatePicker
+@material-ui/pickers is required to use DatePicker
+date-fns is required to use DatePicker
+
+Declare:
+MuiPickersUtilsProvider with utils=DateFnsUtils
 
 ## Properties
 
-<Props of={InputFile} />
+<Props of={DatePicker} />
 
 ## Basic usage
 
 <Playground>
+    <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <div style={{padding: 40}}>
         <Formik
-            initialValues={{name: ""}}
+            initialValues={{createdAt: new Date()}}
             onSubmit={(values) => console.log(values)}
             enableReinitialize
             >
               {({ isSubmitting }) => (
                 <Form>
-                  <InputFile
-                    name="name"
-                    label="Name"
+                  <DatePicker
+                    name="createdAt"
+                    label="Criado Em"
                   />
                 </Form>
             )}
         </Formik>
       </div>
+    </MuiPickersUtilsProvider>
 </Playground>
