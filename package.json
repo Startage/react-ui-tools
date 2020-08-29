@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@startage/react-ui-tools",
-  "version": "1.5.8",
+  "version": "1.6.0",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -46,7 +46,7 @@
     "@types/yup": "^0.26.29",
     "@typescript-eslint/eslint-plugin": "^2.19.0",
     "@typescript-eslint/parser": "^2.19.0",
-    "docz": "latest",
+    "docz": "^2.3.1",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.18.3",
     "gh-pages": "^2.2.0",

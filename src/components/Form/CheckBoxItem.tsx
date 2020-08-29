@@ -4,7 +4,6 @@ import { FormControlLabel, Checkbox, CheckboxProps } from '@material-ui/core';
 
 import { Field } from 'formik';
 
-
 export interface CheckBoxItemProps extends CheckboxProps {
   label: React.ReactNode
   value: string
@@ -12,6 +11,7 @@ export interface CheckBoxItemProps extends CheckboxProps {
   indeterminate?: boolean
   customIcon?: React.ReactNode
   customCheckedIcon?: React.ReactNode
+  disabled?: boolean;
 }
 
 const CheckBoxItem: React.FunctionComponent<CheckBoxItemProps> = ({
@@ -22,6 +22,7 @@ const CheckBoxItem: React.FunctionComponent<CheckBoxItemProps> = ({
   indeterminate,
   customIcon,
   customCheckedIcon,
+  disabled,
   ...others
 }) => (
     <Field name={name}>
@@ -36,6 +37,7 @@ const CheckBoxItem: React.FunctionComponent<CheckBoxItemProps> = ({
                     checked={field.value.includes(value)}
                     value={value}
                     icon={customIcon}
+                    disabled={disabled}
                     checkedIcon={customCheckedIcon}
                     indeterminate={indeterminate}
                     className="checkBoxItem"

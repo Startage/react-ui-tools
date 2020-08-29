@@ -3,13 +3,12 @@ import { Field } from 'formik';
 import t from 'typy';
 
 import {
-  Autocomplete as Root, RenderGroupParams, RenderInputParams, RenderOptionState, GetTagProps,
+  Autocomplete as Root, AutocompleteRenderGroupParams, AutocompleteRenderInputParams, AutocompleteRenderOptionState, AutocompleteGetTagProps,
 } from '@material-ui/lab';
 import { PopperProps } from '@material-ui/core/Popper';
 
 // eslint-disable-next-line import/no-cycle
 import { BaseField } from './BaseField';
-
 
 interface AutocompletProps {
   options: any[];
@@ -42,10 +41,10 @@ interface AutocompletProps {
   PaperComponent?: React.ComponentType<React.HTMLAttributes<HTMLElement>>;
   PopperComponent?: React.ComponentType<PopperProps>;
   popupIcon?: React.ReactNode;
-  renderGroup?: (params: RenderGroupParams) => React.ReactNode;
-  renderInput?: (params: RenderInputParams) => React.ReactNode;
-  renderOption?: (option: any, state: RenderOptionState) => React.ReactNode;
-  renderTags?: (value: any[], getTagProps: GetTagProps) => React.ReactNode;
+  renderGroup?: (params: AutocompleteRenderGroupParams) => React.ReactNode;
+  renderInput?: (params: AutocompleteRenderInputParams) => React.ReactNode;
+  renderOption?: (option: any, state: AutocompleteRenderOptionState) => React.ReactNode;
+  renderTags?: (value: any[], getTagProps: AutocompleteGetTagProps) => React.ReactNode;
   size?: 'small' | 'medium';
   multiple?: any;
   filterSelectedOptions?: boolean;

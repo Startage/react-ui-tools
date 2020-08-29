@@ -7,7 +7,6 @@ import {
 import t from 'typy';
 import { Field } from 'formik';
 
-
 export interface CheckBoxProps extends CheckboxProps {
   label: React.ReactNode
   name: string
@@ -16,6 +15,7 @@ export interface CheckBoxProps extends CheckboxProps {
   customCheckedIcon?: React.ReactNode
   className?: string
   onChange?: (e: any) => void
+  disabled?: boolean;
 }
 
 const CheckBox: React.FunctionComponent<CheckBoxProps> = ({
@@ -27,6 +27,7 @@ const CheckBox: React.FunctionComponent<CheckBoxProps> = ({
   customCheckedIcon,
   className,
   onChange,
+  disabled,
   onBlur,
   onFocus,
   ...others
@@ -52,6 +53,7 @@ const CheckBox: React.FunctionComponent<CheckBoxProps> = ({
                                 icon={customIcon}
                                 checkedIcon={customCheckedIcon}
                                 indeterminate={indeterminate}
+                                disabled={disabled}
                                 className="checkBox"
                                 {...field}
                                 onBlur={(e) => {

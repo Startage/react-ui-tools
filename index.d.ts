@@ -5,10 +5,8 @@ import {
   BaseTextFieldProps, PopperProps,
 } from '@material-ui/core';
 import {
-  RenderGroupParams, RenderInputParams, RenderOptionState, GetTagProps,
+  AutocompleteRenderGroupParams, AutocompleteRenderInputParams, AutocompleteRenderOptionState, AutocompleteGetTagProps,
 } from '@material-ui/lab';
-import { KeyboardDateInputProps } from '@material-ui/pickers/_shared/KeyboardDateInput';
-import { ExtendMui } from '@material-ui/pickers/typings/extendMui';
 import { IconButtonProps } from '@material-ui/core/IconButton';
 import { ReactNode } from 'react';
 
@@ -41,6 +39,7 @@ export interface CheckBoxItemProps extends CheckboxProps {
   indeterminate?: boolean
   customIcon?: React.ReactNode
   customCheckedIcon?: React.ReactNode
+  disabled?: boolean;
 }
 
 export interface CheckBoxGroupProps {
@@ -49,6 +48,7 @@ export interface CheckBoxGroupProps {
   label: string
   className?: string
   inline?: boolean
+  disabled?: boolean;
 }
 
 declare const CheckBoxGroup: React.FunctionComponent<CheckBoxGroupProps>;
@@ -60,6 +60,7 @@ export interface CheckBoxProps extends CheckboxProps {
   customIcon?: React.ReactNode
   customCheckedIcon?: React.ReactNode
   className?: string,
+  disabled?: boolean;
 }
 
 declare const CheckBox: React.FunctionComponent<CheckBoxProps>;
@@ -95,10 +96,10 @@ export interface AutocompletProps {
   PaperComponent?: React.ComponentType<React.HTMLAttributes<HTMLElement>>;
   PopperComponent?: React.ComponentType<PopperProps>;
   popupIcon?: React.ReactNode;
-  renderGroup?: (params: RenderGroupParams) => React.ReactNode;
-  renderInput?: (params: RenderInputParams) => React.ReactNode;
-  renderOption?: (option: any, state: RenderOptionState) => React.ReactNode;
-  renderTags?: (value: any[], getTagProps: GetTagProps) => React.ReactNode;
+  renderGroup?: (params: AutocompleteRenderGroupParams) => React.ReactNode;
+  renderInput?: (params: AutocompleteRenderInputParams) => React.ReactNode;
+  renderOption?: (option: any, state: AutocompleteRenderOptionState) => React.ReactNode;
+  renderTags?: (value: any[], getTagProps: AutocompleteGetTagProps) => React.ReactNode;
   size?: 'small' | 'medium';
   multiple?: any;
   filterSelectedOptions?: boolean;

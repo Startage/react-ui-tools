@@ -9,17 +9,17 @@ import { FieldArray } from 'formik';
 
 import { CheckBoxItem, CheckBoxItemProps } from './CheckBoxItem';
 
-
 interface CheckBoxGroupProps {
   name: string
   options: CheckBoxItemProps[]
   label: React.ReactNode
+  disabled?: boolean;
   className?: string
   inline?: boolean
 }
 
 const CheckBoxGroup: React.FunctionComponent<CheckBoxGroupProps> = ({
-  name, options, label, className, inline,
+  name, options, label, className, inline, disabled,
 }) => (
     <FieldArray
       name={name}
@@ -38,7 +38,7 @@ const CheckBoxGroup: React.FunctionComponent<CheckBoxGroupProps> = ({
           <FormGroup row={inline}>
             {
               options.map((item) => (
-                <CheckBoxItem key={item.value} {...item} name={name} />
+                <CheckBoxItem disabled={disabled} key={item.value} {...item} name={name} />
               ))
             }
           </FormGroup>
